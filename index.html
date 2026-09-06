@@ -10,8 +10,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* تنسيقات إضافية خاصة بالسعر المعدل وعداد الزوار */
+    .old-price {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 0.9em;
+      margin-left: 8px;
+    }
+    .new-price {
+      color: #e67e22;
+      font-weight: 800;
+    }
+    .hourly-rate {
+      display: block;
+      font-size: 0.85em;
+      color: #27ae60;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .visitor-counter-banner {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #333;
+    }
+    .visitor-counter-banner span {
+      color: #f1c40f;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ================= VISITOR COUNTER BANNER ================= -->
+  <div class="visitor-counter-banner">
+    👁️ <span data-ar="عدد زوار الموقع الإجمالي:" data-en="Total Website Visits:">عدد زوار الموقع الإجمالي:</span> 
+    <span id="visitorCount">1</span> <span data-ar="زيارة" data-en="visits">زيارة</span>
+  </div>
 
   <!-- ================= HEADER ================= -->
   <header class="site-header" id="top">
@@ -49,7 +87,7 @@
         <p class="hero-sub" data-ar="دورة المحادثة وتحسين المستوى — 12 ساعة مباشرة أونلاين مع مدربين محترفين، من أي ولاية في الجزائر." data-en="Conversation & level-improvement course — 12 live hours online with professional teachers, from any wilaya in Algeria.">دورة المحادثة وتحسين المستوى — 12 ساعة مباشرة أونلاين مع مدربين محترفين، من أي ولاية في الجزائر.</p>
         <div class="hero-cta">
           <a href="#register" class="btn btn-gold btn-lg" data-ar="سجل الآن / Register Now" data-en="Register Now / سجل الآن">سجل الآن / Register Now</a>
-          <a href="https://wa.me/213781610793?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20SPEAKEASY%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          <a href="https://wa.me/213781610793?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20SPEAKEASY%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%8BD8%A7%20%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
             <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
             <span data-ar="تواصل واتساب" data-en="WhatsApp Us">تواصل واتساب</span>
           </a>
@@ -101,11 +139,17 @@
           <h3 data-ar="تاريخ البداية" data-en="Starting Date">تاريخ البداية</h3>
           <p data-ar="سيُعلن عنه قريبًا — وسيتم إعلام كل المسجلين." data-en="To be announced — all registered students will be informed.">سيُعلن عنه قريبًا — وسيتم إعلام كل المسجلين.</p>
         </div>
+        
+        <!-- CARD PRICE UPDATED -->
         <div class="info-card price-card">
           <div class="info-icon">💰</div>
-          <h3 data-ar="السعر" data-en="Price">السعر</h3>
-          <p class="price"><strong>12000</strong> <span data-ar="دج" data-en="DZD">دج</span></p>
-          <p class="price-note" data-ar="للدورة كاملة (12 ساعة)" data-en="Full course (12 hours)">للدورة كاملة (12 ساعة)</p>
+          <h3 data-ar="السعر والتخفيض" data-en="Discounted Price">السعر والتخفيض</h3>
+          <p class="price">
+            <span class="old-price">12000 دج</span>
+            <strong class="new-price">9600</strong> <span data-ar="دج" data-en="DZD">دج</span>
+          </p>
+          <p class="price-note" data-ar="(تسعمائة وستين ألف) للدورة كاملة (12 ساعة)" data-en="Full course (12 hours)">(تسعمائة وستين ألف) للدورة كاملة (12 ساعة)</p>
+          <span class="hourly-rate" data-ar="💡 400 دج (أربعين ألف) للحصة/الساعة" data-en="💡 400 DZD per hour">💡 400 دج (أربعين ألف) للحصة/الساعة</span>
         </div>
       </div>
     </div>
@@ -149,7 +193,6 @@
       <p class="section-sub" data-ar="نخبة من المدربين المحترفين في خدمتك طوال الدورة." data-en="Professional instructors dedicated to your progress throughout the course.">نخبة من المدربين المحترفين في خدمتك طوال الدورة.</p>
 
       <div class="teachers-grid">
-        <!-- EDIT TEACHER 1: name/role/description below (data-ar = Arabic, data-en = English). Photo: assets/founder-abdessamad.jpg -->
         <article class="teacher-card">
           <div class="teacher-photo">
             <img src="assets/founder-abdessamad.jpg" alt="Abdessamad Ben Sassia — SPEAKEASY founder and trainer" loading="lazy" width="800" height="800">
@@ -160,7 +203,6 @@
             <p data-ar="مؤسس أكاديمية SPEAKEASY ومدرب اللغة الإنجليزية — يرافقك خطوة بخطوة لتتحدث بثقة وطلاقة." data-en="Founder of SPEAKEASY academy and English trainer — guiding you step by step to speak with confidence and fluency.">مؤسس أكاديمية SPEAKEASY ومدرب اللغة الإنجليزية — يرافقك خطوة بخطوة لتتحدث بثقة وطلاقة.</p>
           </div>
         </article>
-        <!-- EDIT TEACHER 2: name/role/description below (data-ar = Arabic, data-en = English). Photo: assets/trainer-abouobeida.jpg -->
         <article class="teacher-card">
           <div class="teacher-photo">
             <img src="assets/trainer-abouobeida.jpg" alt="Abu Obeida Tarbakh — SPEAKEASY trainer" loading="lazy" width="700" height="1000">
@@ -168,7 +210,7 @@
           </div>
           <div class="teacher-body">
             <h3 data-ar="أبو عبيدة طرباخ" data-en="Abu Obeida Tarbakh">أبو عبيدة طرباخ</h3>
-            <p data-ar="مدرب المحادثة في SPEAKEASY — يساعدك على كسر حاجز الخوف وتطوير مستواك في الإنجليزية." data-en="Conversation trainer at SPEAKEASY — helping you break the fear barrier and level up your English.">مدرب المحادثة في SPEAKEASY — يساعدك على كسر حاجز الخوف وتطوير مستواك في الإنجليزية.</p>
+            <p data-ar="مدرب المحادثة في SPEAKEASY — يساعدك على كسر حاجز الخوف وتطوير مستواك في الإنجليزية." data-en="Conversation trainer at SPEAKEASY — helping you break the fear barrier and level up your English.">مدرب المحادثة في SPEAKEASY — helping you break the fear barrier and level up your English.</p>
           </div>
         </article>
       </div>
@@ -182,10 +224,16 @@
         <p class="section-kicker" data-ar="احجز مقعدك" data-en="Save your seat">احجز مقعدك</p>
         <h2 class="section-title" data-ar="استمارة التسجيل" data-en="Registration Form">استمارة التسجيل</h2>
         <p data-ar="املأ الاستمارة وسيتم تحويلك مباشرة إلى واتساب لتأكيد تسجيلك. المقاعد محدودة!" data-en="Fill in the form and you will be redirected to WhatsApp to confirm your registration. Seats are limited!">املأ الاستمارة وسيتم تحويلك مباشرة إلى واتساب لتأكيد تسجيلك. المقاعد محدودة!</p>
+        
+        <!-- PRICE BANNER UPDATED -->
         <div class="price-banner">
-          <span data-ar="سعر الدورة" data-en="Course Price">سعر الدورة</span>
-          <strong>12000 <span data-ar="دج" data-en="DZD">دج</span></strong>
+          <span data-ar="سعر الدورة بعد التخفيض" data-en="Discounted Course Price">سعر الدورة بعد التخفيض</span>
+          <br>
+          <span class="old-price" style="color: #bbb; font-size: 0.85em;">12000 دج</span>
+          <strong style="color: #f39c12;">9600 <span data-ar="دج" data-en="DZD">دج</span></strong>
+          <small style="display:block; font-size:0.75em; font-weight:normal; color:#ddd;" data-ar="(تسعمائة وستين ألف - 400 دج للساعة)" data-en="(9600 DZD - 400 DZD/hour)">(تسعمائة وستين ألف - 400 دج للساعة)</small>
         </div>
+
         <ul class="register-steps">
           <li><span>1</span><p data-ar="املأ معلوماتك الشخصية" data-en="Fill in your personal details">املأ معلوماتك الشخصية</p></li>
           <li><span>2</span><p data-ar="وافق على شروط التسجيل" data-en="Accept the registration conditions">وافق على شروط التسجيل</p></li>
@@ -194,9 +242,8 @@
       </div>
 
       <form id="regForm" class="reg-form" novalidate>
-        <div class="form-meta">
-          <span class="serial-badge">🔢 <span data-ar="رقم التسجيل التسلسلي" data-en="Registration Serial No.">رقم التسجيل التسلسلي</span>: <strong id="serialNum">1</strong></span>
-        </div>
+        <!-- تم إخفاء شارة الرقم التسلسلي هنا بناءً على طلبك لكي لا يظهر في الصفحة -->
+        
         <div class="field">
           <label for="fullName" data-ar="الاسم الكامل *" data-en="Full Name *">الاسم الكامل *</label>
           <input type="text" id="fullName" name="fullName" autocomplete="name"
@@ -331,7 +378,7 @@
         <small class="error" data-error-for="agree"></small>
 
         <p class="submit-hint">👆 <span data-ar="اضغط تأكيد التسجيل عبر الواتساب" data-en="Press Confirm Registration via WhatsApp">اضغط تأكيد التسجيل عبر الواتساب</span></p>
-          <p class="success-serial"><span data-ar="رقم تسجيلك التسلسلي:" data-en="Your serial registration number:">رقم تسجيلك التسلسلي:</span> <strong id="successSerial">1</strong></p>
+        
         <button type="submit" class="btn btn-whatsapp btn-lg btn-block">
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
           <span data-ar="تأكيد التسجيل عبر واتساب" data-en="Confirm Registration via WhatsApp">تأكيد التسجيل عبر واتساب</span>
@@ -399,6 +446,82 @@
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
   </a>
 
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1. إدارة عداد الزوار (يزيد مع كل تحميل للصفحة)
+      let visits = localStorage.getItem("speakeasy_visit_count");
+      if (!visits) {
+        visits = 1;
+      } else {
+        visits = parseInt(visits) + 1;
+      }
+      localStorage.setItem("speakeasy_visit_count", visits);
+      
+      const visitorElem = document.getElementById("visitorCount");
+      if (visitorElem) {
+        visitorElem.textContent = visits;
+      }
+
+      // 2. إدارة الرقم التسلسلي للمسجلين وإرساله عبر الواتساب
+      const regForm = document.getElementById("regForm");
+      if (regForm) {
+        regForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // إحضار الرقم التسلسلي الحالي وزيادته
+          let serial = localStorage.getItem("speakeasy_reg_serial");
+          if (!serial) {
+            serial = 1;
+          } else {
+            serial = parseInt(serial) + 1;
+          }
+
+          // قراءة البيانات من المدخلات
+          const fullName = document.getElementById("fullName") ? document.getElementById("fullName").value : "";
+          const phone = document.getElementById("phone") ? document.getElementById("phone").value : "";
+          const age = document.getElementById("age") ? document.getElementById("age").value : "";
+          const level = document.getElementById("level") ? document.getElementById("level").value : "";
+          const email = document.getElementById("email") ? document.getElementById("email").value : "";
+          const wilaya = document.getElementById("wilaya") ? document.getElementById("wilaya").value : "";
+          const payment = document.getElementById("payment") ? document.getElementById("payment").value : "";
+
+          // صياغة رسالة الواتساب تتضمن الرقم التسلسلي
+          const message = `طلب تسجيل جديد - SPEAKEASY%0A` +
+                          `----------------------------%0A` +
+                          `🔢 الرقم التسلسلي: #${serial}%0A` +
+                          `👤 الاسم الكامل: ${encodeURIComponent(fullName)}%0A` +
+                          `📞 رقم الهاتف: ${encodeURIComponent(phone)}%0A` +
+                          `🎂 العمر: ${encodeURIComponent(age)}%0A` +
+                          `📊 المستوى: ${encodeURIComponent(level)}%0A` +
+                          `📧 البريد الإلكتروني: ${encodeURIComponent(email)}%0A` +
+                          `📍 الولاية: ${encodeURIComponent(wilaya)}%0A` +
+                          `💳 طريقة الدفع: ${encodeURIComponent(payment)}%0A` +
+                          `💰 السعر: 9600 دج (تخفيض)%0A` +
+                          `----------------------------`;
+
+          // حفظ التسجيل التسلسلي الجديد
+          localStorage.setItem("speakeasy_reg_serial", serial);
+
+          // توجيه المستخدم إلى رابط الواتساب
+          const waUrl = `https://wa.me/213781610793?text=${message}`;
+          
+          const fallbackBtn = document.getElementById("waFallback");
+          if (fallbackBtn) {
+            fallbackBtn.href = waUrl;
+          }
+
+          const successBox = document.getElementById("formSuccess");
+          if (successBox) {
+            successBox.hidden = false;
+          }
+
+          // فتح الواتساب تلقائياً
+          window.open(waUrl, "_blank");
+        });
+      }
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
