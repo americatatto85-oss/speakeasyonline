@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SPEAKEASY — Online English conversation course. دورة المحادثة وتحسين المستوى أونلاين.">
+  <title>SPEAKEASY | Online English Academy — أكاديمية تعليم الإنجليزية</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <img src="assets/logo.jpg" alt="SPEAKEASY logo" class="brand-logo" width="48" height="48">
+        <span class="brand-text">SPEAK<em>EASY</em><small data-ar="أونلاين" data-en="ONLINE">أونلاين</small></span>
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#course" data-ar="الدورة" data-en="Course">الدورة</a>
+        <a href="#benefits" data-ar="المزايا" data-en="Benefits">المزايا</a>
+        <a href="#teachers" data-ar="المدربون" data-en="Teachers">المدربون</a>
+        <a href="#register" data-ar="التسجيل" data-en="Register">التسجيل</a>
+        <a href="#contact" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language / اللغة">
+          <button type="button" data-lang-btn="ar" class="active">العربية</button>
+          <button type="button" data-lang-btn="en">English</button>
+        </div>
+        <a href="#register" class="btn btn-gold btn-sm" data-ar="سجل الآن" data-en="Register Now">سجل الآن</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge" data-ar="أكاديمية أونلاين لتعليم الإنجليزية" data-en="Online English Learning Academy">أكاديمية أونلاين لتعليم الإنجليزية</span>
+        <h1 data-ar="طور لغتك الإنجليزية وتحدث بثقة مع SPEAKEASY" data-en="Improve your English speaking skills and communicate with confidence with SPEAKEASY">طور لغتك الإنجليزية وتحدث بثقة مع SPEAKEASY</h1>
+        <p class="hero-sub" data-ar="دورة المحادثة وتحسين المستوى — 12 ساعة مباشرة أونلاين مع مدربين محترفين، من أي ولاية في الجزائر." data-en="Conversation & level-improvement course — 12 live hours online with professional teachers, from any wilaya in Algeria.">دورة المحادثة وتحسين المستوى — 12 ساعة مباشرة أونلاين مع مدربين محترفين، من أي ولاية في الجزائر.</p>
+        <div class="hero-cta">
+          <a href="#register" class="btn btn-gold btn-lg" data-ar="سجل الآن / Register Now" data-en="Register Now / سجل الآن">سجل الآن / Register Now</a>
+          <a href="https://wa.me/213781610793?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20SPEAKEASY%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
+            <span data-ar="تواصل واتساب" data-en="WhatsApp Us">تواصل واتساب</span>
+          </a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong>12</strong><span data-ar="ساعة تدريب" data-en="Training hours">ساعة تدريب</span></li>
+          <li><strong>6 × 2h</strong><span data-ar="حصص مباشرة" data-en="Live sessions">حصص مباشرة</span></li>
+          <li><strong>100%</strong><span data-ar="أونلاين" data-en="Online">أونلاين</span></li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <div class="hero-logo-ring">
+          <img src="assets/logo.jpg" alt="SPEAKEASY — Online English Academy" width="420" height="420">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COURSE ================= -->
+  <section class="section" id="course">
+    <div class="container">
+      <p class="section-kicker" data-ar="برنامج الدورة" data-en="Our Program">برنامج الدورة</p>
+      <h2 class="section-title" data-ar="دورة المحادثة وتحسين المستوى SPEAKEASY" data-en="SPEAKEASY Conversation & Level-Improvement Course">دورة المحادثة وتحسين المستوى SPEAKEASY</h2>
+      <p class="section-sub" data-ar="كل ما تحتاج معرفته قبل التسجيل — بشفافية كاملة." data-en="Everything you need to know before registering — with full transparency.">كل ما تحتاج معرفته قبل التسجيل — بشفافية كاملة.</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">🌐</div>
+          <h3 data-ar="نمط الدورة" data-en="Course Mode">نمط الدورة</h3>
+          <p data-ar="دورة أونلاين — تابع من هاتفك أو حاسوبك من أي مكان." data-en="Online course — join from your phone or computer, anywhere.">دورة أونلاين — تابع من هاتفك أو حاسوبك من أي مكان.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📅</div>
+          <h3 data-ar="المدة" data-en="Duration">المدة</h3>
+          <p data-ar="شهر ونصف من التدريب المكثف على المحادثة." data-en="One month and a half of intensive speaking practice.">شهر ونصف من التدريب المكثف على المحادثة.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">⏱️</div>
+          <h3 data-ar="الحجم الساعي" data-en="Total Hours">الحجم الساعي</h3>
+          <p data-ar="12 ساعة كاملة — كل حصة تدوم ساعتين." data-en="12 full hours — each session lasts 2 hours.">12 ساعة كاملة — كل حصة تدوم ساعتين.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🎓</div>
+          <h3 data-ar="الحصة الواحدة" data-en="Each Session">الحصة الواحدة</h3>
+          <p data-ar="ساعتان (2h) من الممارسة والتفاعل المباشر." data-en="2 hours of live practice and interaction.">ساعتان (2h) من الممارسة والتفاعل المباشر.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📣</div>
+          <h3 data-ar="تاريخ البداية" data-en="Starting Date">تاريخ البداية</h3>
+          <p data-ar="سيُعلن عنه قريبًا — وسيتم إعلام كل المسجلين." data-en="To be announced — all registered students will be informed.">سيُعلن عنه قريبًا — وسيتم إعلام كل المسجلين.</p>
+        </div>
+        <div class="info-card price-card">
+          <div class="info-icon">💰</div>
+          <h3 data-ar="السعر" data-en="Price">السعر</h3>
+          <p class="price"><strong>12000</strong> <span data-ar="دج" data-en="DZD">دج</span></p>
+          <p class="price-note" data-ar="للدورة كاملة (12 ساعة)" data-en="Full course (12 hours)">للدورة كاملة (12 ساعة)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BENEFITS ================= -->
+  <section class="section section-dark" id="benefits">
+    <div class="container">
+      <p class="section-kicker gold" data-ar="لماذا SPEAKEASY؟" data-en="Why SPEAKEASY?">لماذا SPEAKEASY؟</p>
+      <h2 class="section-title light" data-ar="ماذا ستستفيد من الدورة؟" data-en="What will you gain from this course?">ماذا ستستفيد من الدورة؟</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-num">01</div>
+          <h3 data-ar="تحسين مهارات المحادثة" data-en="Better conversation skills">تحسين مهارات المحادثة</h3>
+          <p data-ar="مارس الإنجليزية الحقيقية في كل حصة وطوّر طلاقتك خطوة بخطوة." data-en="Practise real English every session and grow your fluency step by step.">مارس الإنجليزية الحقيقية في كل حصة وطوّر طلاقتك خطوة بخطوة.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">02</div>
+          <h3 data-ar="الثقة أثناء التحدث" data-en="Speaking confidence">الثقة أثناء التحدث</h3>
+          <p data-ar="تخلص من الخوف وتحدث بثقة أمام أي شخص وفي أي موقف." data-en="Lose the fear and speak confidently to anyone, in any situation.">تخلص من الخوف وتحدث بثقة أمام أي شخص وفي أي موقف.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">03</div>
+          <h3 data-ar="مفردات وتواصل أقوى" data-en="Stronger vocabulary & communication">مفردات وتواصل أقوى</h3>
+          <p data-ar="طوّر رصيدك اللغوي وقدرتك على التعبير بوضوح وفعالية." data-en="Build your vocabulary and express yourself clearly and effectively.">طوّر رصيدك اللغوي وقدرتك على التعبير بوضوح وفعالية.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">04</div>
+          <h3 data-ar="تعلم من مدربين محترفين" data-en="Learn from professionals">تعلم من مدربين محترفين</h3>
+          <p data-ar="تعلّم أونلاين على يد مدربين ذوي خبرة يرافقونك طوال الدورة." data-en="Learn online with experienced teachers guiding you all the way.">تعلّم أونلاين على يد مدربين ذوي خبرة يرافقونك طوال الدورة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TEACHERS ================= -->
+  <section class="section" id="teachers">
+    <div class="container">
+      <p class="section-kicker" data-ar="فريقنا" data-en="Our Team">فريقنا</p>
+      <h2 class="section-title" data-ar="تعرّف على مدربيك" data-en="Meet your instructors">تعرّف على مدربيك</h2>
+      <p class="section-sub" data-ar="نخبة من المدربين المحترفين في خدمتك طوال الدورة." data-en="Professional instructors dedicated to your progress throughout the course.">نخبة من المدربين المحترفين في خدمتك طوال الدورة.</p>
+
+      <div class="teachers-grid">
+        <!-- EDIT TEACHER 1: name/role/description below (data-ar = Arabic, data-en = English). Photo: assets/founder-abdessamad.jpg -->
+        <article class="teacher-card">
+          <div class="teacher-photo">
+            <img src="assets/founder-abdessamad.jpg" alt="Abdessamad Ben Sassia — SPEAKEASY founder and trainer" loading="lazy" width="800" height="800">
+            <span class="teacher-badge" data-ar="المؤسس والمدرب" data-en="Founder & Trainer">المؤسس والمدرب</span>
+          </div>
+          <div class="teacher-body">
+            <h3 data-ar="عبد الصمد بن ساسية" data-en="Abdessamad Ben Sassia">عبد الصمد بن ساسية</h3>
+            <p data-ar="مؤسس أكاديمية SPEAKEASY ومدرب اللغة الإنجليزية — يرافقك خطوة بخطوة لتتحدث بثقة وطلاقة." data-en="Founder of SPEAKEASY academy and English trainer — guiding you step by step to speak with confidence and fluency.">مؤسس أكاديمية SPEAKEASY ومدرب اللغة الإنجليزية — يرافقك خطوة بخطوة لتتحدث بثقة وطلاقة.</p>
+          </div>
+        </article>
+        <!-- EDIT TEACHER 2: name/role/description below (data-ar = Arabic, data-en = English). Photo: assets/trainer-abouobeida.jpg -->
+        <article class="teacher-card">
+          <div class="teacher-photo">
+            <img src="assets/trainer-abouobeida.jpg" alt="Abu Obeida Tarbakh — SPEAKEASY trainer" loading="lazy" width="700" height="1000">
+            <span class="teacher-badge" data-ar="مدرب" data-en="Trainer">مدرب</span>
+          </div>
+          <div class="teacher-body">
+            <h3 data-ar="أبو عبيدة طرباخ" data-en="Abu Obeida Tarbakh">أبو عبيدة طرباخ</h3>
+            <p data-ar="مدرب المحادثة في SPEAKEASY — يساعدك على كسر حاجز الخوف وتطوير مستواك في الإنجليزية." data-en="Conversation trainer at SPEAKEASY — helping you break the fear barrier and level up your English.">مدرب المحادثة في SPEAKEASY — يساعدك على كسر حاجز الخوف وتطوير مستواك في الإنجليزية.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REGISTRATION ================= -->
+  <section class="section section-tint" id="register">
+    <div class="container register-grid">
+      <div class="register-aside">
+        <p class="section-kicker" data-ar="احجز مقعدك" data-en="Save your seat">احجز مقعدك</p>
+        <h2 class="section-title" data-ar="استمارة التسجيل" data-en="Registration Form">استمارة التسجيل</h2>
+        <p data-ar="املأ الاستمارة وسيتم تحويلك مباشرة إلى واتساب لتأكيد تسجيلك. المقاعد محدودة!" data-en="Fill in the form and you will be redirected to WhatsApp to confirm your registration. Seats are limited!">املأ الاستمارة وسيتم تحويلك مباشرة إلى واتساب لتأكيد تسجيلك. المقاعد محدودة!</p>
+        <div class="price-banner">
+          <span data-ar="سعر الدورة" data-en="Course Price">سعر الدورة</span>
+          <strong>12000 <span data-ar="دج" data-en="DZD">دج</span></strong>
+        </div>
+        <ul class="register-steps">
+          <li><span>1</span><p data-ar="املأ معلوماتك الشخصية" data-en="Fill in your personal details">املأ معلوماتك الشخصية</p></li>
+          <li><span>2</span><p data-ar="وافق على شروط التسجيل" data-en="Accept the registration conditions">وافق على شروط التسجيل</p></li>
+          <li><span>3</span><p data-ar="أرسل عبر واتساب للتأكيد" data-en="Send via WhatsApp to confirm">أرسل عبر واتساب للتأكيد</p></li>
+        </ul>
+      </div>
+
+      <form id="regForm" class="reg-form" novalidate>
+        <div class="form-meta">
+          <span class="serial-badge">🔢 <span data-ar="رقم التسجيل التسلسلي" data-en="Registration Serial No.">رقم التسجيل التسلسلي</span>: <strong id="serialNum">1</strong></span>
+        </div>
+        <div class="field">
+          <label for="fullName" data-ar="الاسم الكامل *" data-en="Full Name *">الاسم الكامل *</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name"
+                 data-ar-ph="مثال: بن ساسية عبد الصمد" data-en-ph="e.g. Ben Sassia Abdessamad" placeholder="مثال: بن ساسية عبد الصمد">
+          <small class="error" data-error-for="fullName"></small>
+        </div>
+
+        <div class="field">
+          <label for="phone" data-ar="رقم الهاتف *" data-en="Phone Number *">رقم الهاتف *</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" dir="ltr"
+                 data-ar-ph="مثال: 0550123456" data-en-ph="e.g. 0550123456" placeholder="مثال: 0550123456">
+          <span class="hint" data-ar="يفضل الرقم المرتبط بالواتساب" data-en="Preferably your WhatsApp-connected number">يفضل الرقم المرتبط بالواتساب</span>
+          <small class="error" data-error-for="phone"></small>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="age" data-ar="العمر *" data-en="Age *">العمر *</label>
+            <select id="age" name="age">
+              <option value="" data-ar="اختر فئتك العمرية" data-en="Select your age range">اختر فئتك العمرية</option>
+              <option value="20-30" data-ar="20 - 30 سنة" data-en="20 - 30 years">20 - 30 سنة</option>
+              <option value="31-40" data-ar="31 - 40 سنة" data-en="31 - 40 years">31 - 40 سنة</option>
+              <option value="41-50" data-ar="41 - 50 سنة" data-en="41 - 50 years">41 - 50 سنة</option>
+              <option value="50+" data-ar="أكثر من 50 سنة" data-en="More than 50 years">أكثر من 50 سنة</option>
+            </select>
+            <small class="error" data-error-for="age"></small>
+          </div>
+
+          <div class="field">
+            <label for="level" data-ar="مستواك المتوقع في الإنجليزية *" data-en="Expected English Level *">مستواك المتوقع في الإنجليزية *</label>
+            <select id="level" name="level">
+              <option value="" data-ar="اختر مستواك" data-en="Select your level">اختر مستواك</option>
+              <option value="Beginner" data-ar="مبتدئ" data-en="Beginner">مبتدئ</option>
+              <option value="Elementary" data-ar="أساسي" data-en="Elementary">أساسي</option>
+              <option value="Intermediate" data-ar="متوسط" data-en="Intermediate">متوسط</option>
+              <option value="Upper Intermediate" data-ar="فوق المتوسط" data-en="Upper Intermediate">فوق المتوسط</option>
+              <option value="Advanced" data-ar="متقدم" data-en="Advanced">متقدم</option>
+            </select>
+            <small class="error" data-error-for="level"></small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email" data-ar="البريد الإلكتروني *" data-en="Email Address *">البريد الإلكتروني *</label>
+          <input type="email" id="email" name="email" autocomplete="email" dir="ltr"
+                 data-ar-ph="example@mail.com" data-en-ph="example@mail.com" placeholder="example@mail.com">
+          <small class="error" data-error-for="email"></small>
+        </div>
+
+        <div class="field">
+          <label for="wilaya" data-ar="الولاية / المدينة *" data-en="Wilaya / City *">الولاية / المدينة *</label>
+          <select id="wilaya" name="wilaya">
+            <option value="" data-ar="اختر ولايتك" data-en="Select your wilaya">اختر ولايتك</option>
+            <option value="01 - Adrar">01 - Adrar - أدرار</option>
+            <option value="02 - Chlef">02 - Chlef - الشلف</option>
+            <option value="03 - Laghouat">03 - Laghouat - الأغواط</option>
+            <option value="04 - Oum El Bouaghi">04 - Oum El Bouaghi - أم البواقي</option>
+            <option value="05 - Batna">05 - Batna - باتنة</option>
+            <option value="06 - Bejaia">06 - Béjaïa - بجاية</option>
+            <option value="07 - Biskra">07 - Biskra - بسكرة</option>
+            <option value="08 - Bechar">08 - Béchar - بشار</option>
+            <option value="09 - Blida">09 - Blida - البليدة</option>
+            <option value="10 - Bouira">10 - Bouira - البويرة</option>
+            <option value="11 - Tamanrasset">11 - Tamanrasset - تمنراست</option>
+            <option value="12 - Tebessa">12 - Tébessa - تبسة</option>
+            <option value="13 - Tlemcen">13 - Tlemcen - تلمسان</option>
+            <option value="14 - Tiaret">14 - Tiaret - تيارت</option>
+            <option value="15 - Tizi Ouzou">15 - Tizi Ouzou - تيزي وزو</option>
+            <option value="16 - Alger">16 - Alger - الجزائر</option>
+            <option value="17 - Djelfa">17 - Djelfa - الجلفة</option>
+            <option value="18 - Jijel">18 - Jijel - جيجل</option>
+            <option value="19 - Setif">19 - Sétif - سطيف</option>
+            <option value="20 - Saida">20 - Saïda - سعيدة</option>
+            <option value="21 - Skikda">21 - Skikda - سكيكدة</option>
+            <option value="22 - Sidi Bel Abbes">22 - Sidi Bel Abbès - سيدي بلعباس</option>
+            <option value="23 - Annaba">23 - Annaba - عنابة</option>
+            <option value="24 - Guelma">24 - Guelma - قالمة</option>
+            <option value="25 - Constantine">25 - Constantine - قسنطينة</option>
+            <option value="26 - Medea">26 - Médéa - المدية</option>
+            <option value="27 - Mostaganem">27 - Mostaganem - مستغانم</option>
+            <option value="28 - M'Sila">28 - M'Sila - المسيلة</option>
+            <option value="29 - Mascara">29 - Mascara - معسكر</option>
+            <option value="30 - Ouargla">30 - Ouargla - ورقلة</option>
+            <option value="31 - Oran">31 - Oran - وهران</option>
+            <option value="32 - El Bayadh">32 - El Bayadh - البيض</option>
+            <option value="33 - Illizi">33 - Illizi - إليزي</option>
+            <option value="34 - Bordj Bou Arreridj">34 - Bordj Bou Arréridj - برج بوعريريج</option>
+            <option value="35 - Boumerdes">35 - Boumerdès - بومرداس</option>
+            <option value="36 - El Tarf">36 - El Tarf - الطارف</option>
+            <option value="37 - Tindouf">37 - Tindouf - تندوف</option>
+            <option value="38 - Tissemsilt">38 - Tissemsilt - تيسمسيلت</option>
+            <option value="39 - El Oued">39 - El Oued - الوادي</option>
+            <option value="40 - Khenchela">40 - Khenchela - خنشلة</option>
+            <option value="41 - Souk Ahras">41 - Souk Ahras - سوق أهراس</option>
+            <option value="42 - Tipaza">42 - Tipaza - تيبازة</option>
+            <option value="43 - Mila">43 - Mila - ميلة</option>
+            <option value="44 - Ain Defla">44 - Aïn Defla - عين الدفلى</option>
+            <option value="45 - Naama">45 - Naâma - النعامة</option>
+            <option value="46 - Ain Temouchent">46 - Aïn Témouchent - عين تموشنت</option>
+            <option value="47 - Ghardaia">47 - Ghardaïa - غرداية</option>
+            <option value="48 - Relizane">48 - Relizane - غليزان</option>
+            <option value="49 - Timimoun">49 - Timimoun - تيميمون</option>
+            <option value="50 - Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar - برج باجي مختار</option>
+            <option value="51 - Ouled Djellal">51 - Ouled Djellal - أولاد جلال</option>
+            <option value="52 - Beni Abbes">52 - Béni Abbès - بني عباس</option>
+            <option value="53 - In Salah">53 - In Salah - عين صالح</option>
+            <option value="54 - In Guezzam">54 - In Guezzam - عين قزام</option>
+            <option value="55 - Touggourt">55 - Touggourt - تقرت</option>
+            <option value="56 - Djanet">56 - Djanet - جانت</option>
+            <option value="57 - El M'Ghair">57 - El M'Ghair - المغير</option>
+            <option value="58 - El Meniaa">58 - El Meniaa - المنيعة</option>
+          </select>
+          <small class="error" data-error-for="wilaya"></small>
+        </div>
+
+        <div class="field">
+          <label for="payment" data-ar="طريقة الدفع *" data-en="Payment Method *">طريقة الدفع *</label>
+          <select id="payment" name="payment">
+            <option value="" data-ar="اختر طريقة الدفع" data-en="Select payment method">اختر طريقة الدفع</option>
+            <option value="CCP">CCP</option>
+            <option value="BaridiMob">BaridiMob</option>
+            <option value="Cash" data-ar="نقدا" data-en="Cash">نقدا</option>
+          </select>
+          <span class="hint" data-ar="لا يتوفر الدفع البنكي" data-en="No bank payment available">لا يتوفر الدفع البنكي</span>
+          <small class="error" data-error-for="payment"></small>
+        </div>
+
+        <label class="agree">
+          <input type="checkbox" id="agree" name="agree">
+          <span data-ar="أوافق على شروط التسجيل *" data-en="I agree to the registration conditions *">أوافق على شروط التسجيل *</span>
+        </label>
+        <small class="error" data-error-for="agree"></small>
+
+        <p class="submit-hint">👆 <span data-ar="اضغط تأكيد التسجيل عبر الواتساب" data-en="Press Confirm Registration via WhatsApp">اضغط تأكيد التسجيل عبر الواتساب</span></p>
+
+        <button type="submit" class="btn btn-whatsapp btn-lg btn-block">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
+          <span data-ar="تأكيد التسجيل عبر واتساب" data-en="Confirm Registration via WhatsApp">تأكيد التسجيل عبر واتساب</span>
+        </button>
+
+        <div class="form-success" id="formSuccess" hidden>
+          <p class="success-title" data-ar="تم تجهيز طلب تسجيلك بنجاح! ✅" data-en="Your registration request is ready! ✅">تم تجهيز طلب تسجيلك بنجاح! ✅</p>
+          <p class="success-serial"><span data-ar="رقم تسجيلك التسلسلي:" data-en="Your serial registration number:">رقم تسجيلك التسلسلي:</span> <strong id="successSerial">1</strong></p>
+          <p data-ar="تم فتح واتساب — اضغط إرسال لإتمام التسجيل. إن لم يُفتح تلقائيًا استعمل الزر أدناه." data-en="WhatsApp has been opened — press send to complete registration. If it didn't open, use the button below.">تم فتح واتساب — اضغط إرسال لإتمام التسجيل. إن لم يُفتح تلقائيًا استعمل الزر أدناه.</p>
+          <a href="#" id="waFallback" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <span data-ar="فتح واتساب مجددًا" data-en="Open WhatsApp again">فتح واتساب مجددًا</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= FACEBOOK ================= -->
+  <section class="fb-band">
+    <div class="container fb-inner">
+      <div>
+        <h2 data-ar="تابعنا على فيسبوك" data-en="Follow us on Facebook">تابعنا على فيسبوك</h2>
+        <p data-ar="جديد الدورات، نصائح الإنجليزية، ومواعيد الحصص — كلها على صفحتنا." data-en="New courses, English tips and session schedules — all on our page.">جديد الدورات، نصائح الإنجليزية، ومواعيد الحصص — كلها على صفحتنا.</p>
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=61584055100774" target="_blank" rel="noopener" class="btn btn-facebook btn-lg">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg>
+        <span data-ar="تابعنا على فيسبوك" data-en="Follow us on Facebook">تابعنا على فيسبوك</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.jpg" alt="SPEAKEASY logo" width="64" height="64">
+        <p class="footer-name">SPEAKEASY</p>
+        <p data-ar="أكاديمية أونلاين لتطوير المحادثة باللغة الإنجليزية والتحدث بثقة." data-en="Online academy for English conversation skills and confident speaking.">أكاديمية أونلاين لتطوير المحادثة باللغة الإنجليزية والتحدث بثقة.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4>
+        <a href="#course" data-ar="الدورة" data-en="Course">الدورة</a>
+        <a href="#benefits" data-ar="المزايا" data-en="Benefits">المزايا</a>
+        <a href="#teachers" data-ar="المدربون" data-en="Teachers">المدربون</a>
+        <a href="#register" data-ar="التسجيل" data-en="Register">التسجيل</a>
+      </div>
+      <div class="footer-contact">
+        <h4 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h4>
+        <a class="btn btn-whatsapp btn-sm" href="https://wa.me/213781610793" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
+          <span dir="ltr">+213 781 61 07 93</span>
+        </a>
+        <a class="btn btn-facebook btn-sm" href="https://www.facebook.com/profile.php?id=61584055100774" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg>
+          <span data-ar="صفحتنا على فيسبوك" data-en="Our Facebook page">صفحتنا على فيسبوك</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> SPEAKEASY. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/213781610793" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
