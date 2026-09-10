@@ -101,6 +101,166 @@
       color: #f1c40f;
       font-weight: bold;
     }
+
+    /* ================= DASHBOARD & MODAL STYLES ================= */
+    .admin-link-btn {
+      background: transparent;
+      border: 1px dashed #f1c40f;
+      color: #f1c40f;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: inherit;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    .admin-link-btn:hover {
+      background: #f1c40f;
+      color: #111;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: #fff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 1000px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      padding: 25px;
+      position: relative;
+      direction: rtl;
+    }
+    .modal-card.login-card {
+      max-width: 400px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .modal-header h3 {
+      margin: 0;
+      color: #1e272e;
+      font-size: 1.4rem;
+    }
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #777;
+    }
+    .close-modal:hover { color: #e74c3c; }
+
+    .dash-stats-bar {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .dash-stat-item {
+      background: #f8f9fa;
+      border-right: 4px solid #f1c40f;
+      padding: 10px 20px;
+      border-radius: 6px;
+      flex: 1;
+      min-width: 180px;
+    }
+    .dash-stat-item span { display: block; font-size: 0.85rem; color: #666; }
+    .dash-stat-item strong { font-size: 1.5rem; color: #1e272e; }
+
+    .dash-controls {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    .dash-search-input {
+      padding: 8px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      width: 250px;
+    }
+    .dash-btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .dash-btn-excel { background: #27ae60; color: #fff; }
+    .dash-btn-pass { background: #3498db; color: #fff; }
+    .dash-btn-clear { background: #e74c3c; color: #fff; }
+
+    .table-wrapper {
+      overflow-x: auto;
+      max-height: 450px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+    }
+    .dash-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: right;
+    }
+    .dash-table th, .dash-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      white-space: nowrap;
+    }
+    .dash-table th {
+      background: #1e272e;
+      color: #fff;
+      position: sticky;
+      top: 0;
+    }
+    .dash-table tr:hover { background: #f9f9f9; }
+
+    .pass-change-box {
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .pass-change-box.active { display: block; }
+    .pass-change-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -492,6 +652,7 @@
     </div>
     <div class="footer-bottom">
       <p>© <span id="year">2026</span> SPEAKEASY. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></p>
+      <button type="button" class="admin-link-btn" id="openAdminTrigger">🔒 لوحة التحكم للإدارة</button>
     </div>
   </footer>
 
@@ -499,8 +660,93 @@
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
   </a>
 
+  <!-- ================= ADMIN LOGIN MODAL ================= -->
+  <div class="modal-overlay" id="adminLoginModal">
+    <div class="modal-card login-card">
+      <div class="modal-header">
+        <h3>🔒 دخول الإدارة</h3>
+        <button class="close-modal" class="closeAdminLogin">&times;</button>
+      </div>
+      <form id="adminLoginForm">
+        <div class="field" style="margin-bottom: 15px;">
+          <label for="adminPasswordInput">أدخل الرقم السري للإدارة:</label>
+          <input type="password" id="adminPasswordInput" placeholder="الرقم السري" style="width: 100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
+          <small class="error" id="loginError" style="color:red; display:block; margin-top:5px;"></small>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block">دخول</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ADMIN DASHBOARD MODAL ================= -->
+  <div class="modal-overlay" id="adminDashboardModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>📊 لوحة تحكم الإدارة — SPEAKEASY</h3>
+        <button class="close-modal" id="closeAdminDash">&times;</button>
+      </div>
+
+      <div class="dash-stats-bar">
+        <div class="dash-stat-item">
+          <span>إجمالي المسجلين عبر الواتساب</span>
+          <strong id="dashTotalCount">0</strong>
+        </div>
+        <div class="dash-stat-item">
+          <span>إجمالي زوار الموقع</span>
+          <strong id="dashVisitsCount">0</strong>
+        </div>
+      </div>
+
+      <!-- Password Change Section -->
+      <div class="pass-change-box" id="passChangeBox">
+        <h4 style="margin-top:0;">🔑 تغيير الرقم السري للإدارة</h4>
+        <div class="pass-change-grid">
+          <input type="password" id="oldPassInput" placeholder="الكلمة السرية الحالية" style="padding: 8px; border:1px solid #ccc; border-radius:4px;">
+          <input type="password" id="newPassInput" placeholder="الكلمة السرية الجديدة" style="padding: 8px; border:1px solid #ccc; border-radius:4px;">
+          <input type="password" id="confirmPassInput" placeholder="تأكيد الكلمة السرية الجديدة" style="padding: 8px; border:1px solid #ccc; border-radius:4px;">
+        </div>
+        <div style="margin-top: 10px; display: flex; gap: 10px; align-items: center;">
+          <button type="button" class="dash-btn dash-btn-excel" id="saveNewPassBtn">حفظ الرقم السري الجديد</button>
+          <small id="passChangeMsg" style="font-weight:bold;"></small>
+        </div>
+      </div>
+
+      <div class="dash-controls">
+        <input type="text" id="dashSearch" class="dash-search-input" placeholder="🔍 بحث بالاسم، الهاتف، الولاية...">
+        <div style="display: flex; gap: 8px;">
+          <button class="dash-btn dash-btn-pass" id="togglePassBoxBtn">⚙️ تغيير الرقم السري</button>
+          <button class="dash-btn dash-btn-excel" id="exportCsvBtn">📥 تصدير Excel (CSV)</button>
+          <button class="dash-btn dash-btn-clear" id="clearAllBtn">🗑️ مسح الكل</button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>التاريخ والوقت</th>
+              <th>الاسم الكامل</th>
+              <th>رقم الهاتف</th>
+              <th>العمر</th>
+              <th>المستوى</th>
+              <th>البريد الإلكتروني</th>
+              <th>الولاية</th>
+              <th>طريقة الدفع</th>
+              <th>إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="dashTableBody">
+            <!-- Data Rows inserted via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // 1. Visitiors Counter Logic
       let visits = localStorage.getItem("speakeasy_visit_count");
       if (!visits) {
         visits = 1;
@@ -514,58 +760,259 @@
         visitorElem.textContent = visits;
       }
 
+      // Default Admin Password (123456 if not set)
+      if (!localStorage.getItem("speakeasy_admin_pass")) {
+        localStorage.setItem("speakeasy_admin_pass", "123456");
+      }
+
+      // 2. Registration Form Logic & Saving Data
       const regForm = document.getElementById("regForm");
       if (regForm) {
         regForm.addEventListener("submit", function (e) {
           e.preventDefault();
 
-          let serial = localStorage.getItem("speakeasy_reg_serial");
-          if (!serial) {
-            serial = 1;
-          } else {
-            serial = parseInt(serial) + 1;
-          }
+          const fullName = document.getElementById("fullName").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const age = document.getElementById("age").value;
+          const level = document.getElementById("level").value;
+          const email = document.getElementById("email").value.trim();
+          const wilaya = document.getElementById("wilaya").value;
+          const payment = document.getElementById("payment").value;
+          const agree = document.getElementById("agree").checked;
 
-          const fullName = document.getElementById("fullName") ? document.getElementById("fullName").value : "";
-          const phone = document.getElementById("phone") ? document.getElementById("phone").value : "";
-          const age = document.getElementById("age") ? document.getElementById("age").value : "";
-          const level = document.getElementById("level") ? document.getElementById("level").value : "";
-          const email = document.getElementById("email") ? document.getElementById("email").value : "";
-          const wilaya = document.getElementById("wilaya") ? document.getElementById("wilaya").value : "";
-          const payment = document.getElementById("payment") ? document.getElementById("payment").value : "";
+          let hasError = false;
 
-          const message = `طلب تسجيل جديد - SPEAKEASY%0A` +
-                          `----------------------------%0A` +
-                          `🔢 الرقم التسلسلي: #${serial}%0A` +
-                          `👤 الاسم الكامل: ${encodeURIComponent(fullName)}%0A` +
-                          `📞 رقم الهاتف: ${encodeURIComponent(phone)}%0A` +
-                          `🎂 العمر: ${encodeURIComponent(age)}%0A` +
-                          `📊 المستوى: ${encodeURIComponent(level)}%0A` +
-                          `📧 البريد الإلكتروني: ${encodeURIComponent(email)}%0A` +
-                          `📍 الولاية: ${encodeURIComponent(wilaya)}%0A` +
-                          `💳 طريقة الدفع: ${encodeURIComponent(payment)}%0A` +
-                          `💰 السعر: 9600 دج (تخفيض)%0A` +
-                          `----------------------------`;
+          // Simple Validation
+          if (!fullName) { showError("fullName", "يرجى إدخال الاسم الكامل"); hasError = true; } else { clearError("fullName"); }
+          if (!phone) { showError("phone", "يرجى إدخال رقم الهاتف"); hasError = true; } else { clearError("phone"); }
+          if (!age) { showError("age", "يرجى اختيار الفئة العمرية"); hasError = true; } else { clearError("age"); }
+          if (!level) { showError("level", "يرجى اختيار مستواك"); hasError = true; } else { clearError("level"); }
+          if (!email) { showError("email", "يرجى إدخال البريد الإلكتروني"); hasError = true; } else { clearError("email"); }
+          if (!wilaya) { showError("wilaya", "يرجى اختيار ولايتك"); hasError = true; } else { clearError("wilaya"); }
+          if (!payment) { showError("payment", "يرجى اختيار طريقة الدفع"); hasError = true; } else { clearError("payment"); }
+          if (!agree) { showError("agree", "يجب الموافقة على شروط التسجيل"); hasError = true; } else { clearError("agree"); }
 
-          localStorage.setItem("speakeasy_reg_serial", serial);
+          if (hasError) return;
 
-          const waUrl = `https://wa.me/213781610793?text=${message}`;
-          
-          const fallbackBtn = document.getElementById("waFallback");
-          if (fallbackBtn) {
-            fallbackBtn.href = waUrl;
-          }
+          // Format Registration Record
+          const record = {
+            id: Date.now(),
+            timestamp: new Date().toLocaleString("ar-DZ"),
+            fullName: fullName,
+            phone: phone,
+            age: age,
+            level: level,
+            email: email,
+            wilaya: wilaya,
+            payment: payment
+          };
 
-          const successBox = document.getElementById("formSuccess");
-          if (successBox) {
-            successBox.hidden = false;
-          }
+          // Save to LocalStorage
+          let currentRegs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+          currentRegs.unshift(record);
+          localStorage.setItem("speakeasy_registrations", JSON.stringify(currentRegs));
 
+          // Prepare WhatsApp Message
+          const waMessage = `مرحباً SPEAKEASY، أريد تأكيد تسجيلي في الدورة:
+- الاسم: ${fullName}
+- الهاتف: ${phone}
+- العمر: ${age}
+- المستوى: ${level}
+- البريد: ${email}
+- الولاية: ${wilaya}
+- طريقة الدفع: ${payment}`;
+
+          const waUrl = `https://wa.me/213781610793?text=${encodeURIComponent(waMessage)}`;
+
+          // Show Success UI & Fallback
+          document.getElementById("formSuccess").hidden = false;
+          document.getElementById("waFallback").href = waUrl;
+
+          // Open WhatsApp
           window.open(waUrl, "_blank");
+
+          // Reset Form
+          regForm.reset();
         });
       }
+
+      function showError(fieldId, msg) {
+        const errElem = document.querySelector(`[data-error-for="${fieldId}"]`);
+        if (errElem) errElem.textContent = msg;
+      }
+      function clearError(fieldId) {
+        const errElem = document.querySelector(`[data-error-for="${fieldId}"]`);
+        if (errElem) errElem.textContent = "";
+      }
+
+      // 3. Admin Authentication & Dashboard Modal Logic
+      const openAdminTrigger = document.getElementById("openAdminTrigger");
+      const adminLoginModal = document.getElementById("adminLoginModal");
+      const adminDashboardModal = document.getElementById("adminDashboardModal");
+      const adminLoginForm = document.getElementById("adminLoginForm");
+      const loginError = document.getElementById("loginError");
+
+      openAdminTrigger.addEventListener("click", function() {
+        adminLoginModal.classList.add("active");
+      });
+
+      document.querySelectorAll(".close-modal").forEach(btn => {
+        btn.addEventListener("click", function() {
+          adminLoginModal.classList.remove("active");
+          adminDashboardModal.classList.remove("active");
+        });
+      });
+
+      adminLoginForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const enteredPass = document.getElementById("adminPasswordInput").value;
+        const currentPass = localStorage.getItem("speakeasy_admin_pass");
+
+        if (enteredPass === currentPass) {
+          loginError.textContent = "";
+          adminLoginModal.classList.remove("active");
+          document.getElementById("adminPasswordInput").value = "";
+          openDashboard();
+        } else {
+          loginError.textContent = "الرقم السري غير صحيح!";
+        }
+      });
+
+      // Render & Open Dashboard
+      function openDashboard() {
+        adminDashboardModal.classList.add("active");
+        renderDashboardData();
+      }
+
+      function renderDashboardData() {
+        const regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+        document.getElementById("dashTotalCount").textContent = regs.length;
+        document.getElementById("dashVisitsCount").textContent = localStorage.getItem("speakeasy_visit_count") || "1";
+
+        const tbody = document.getElementById("dashTableBody");
+        const searchTerm = document.getElementById("dashSearch").value.toLowerCase();
+        tbody.innerHTML = "";
+
+        const filtered = regs.filter(r => 
+          r.fullName.toLowerCase().includes(searchTerm) ||
+          r.phone.includes(searchTerm) ||
+          r.wilaya.toLowerCase().includes(searchTerm) ||
+          r.email.toLowerCase().includes(searchTerm)
+        );
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:20px; color:#888;">لا توجد تسجيلات حتى الآن.</td></tr>`;
+          return;
+        }
+
+        filtered.forEach((r, index) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${r.timestamp}</td>
+            <td><strong>${r.fullName}</strong></td>
+            <td><a href="https://wa.me/${r.phone.replace(/[^0-9]/g, '')}" target="_blank" style="color:#27ae60; font-weight:bold; text-decoration:none;">📱 ${r.phone}</a></td>
+            <td>${r.age}</td>
+            <td>${r.level}</td>
+            <td>${r.email}</td>
+            <td>${r.wilaya}</td>
+            <td>${r.payment}</td>
+            <td>
+              <button onclick="deleteSingleReg(${r.id})" style="background:#e74c3c; color:#fff; border:none; border-radius:4px; padding:4px 8px; cursor:pointer;">حذف</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      // Search Filter
+      document.getElementById("dashSearch").addEventListener("input", renderDashboardData);
+
+      // Delete Single Record
+      window.deleteSingleReg = function(id) {
+        if (confirm("هل أنت تأكد من حذف هذا التسجيل؟")) {
+          let regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+          regs = regs.filter(r => r.id !== id);
+          localStorage.setItem("speakeasy_registrations", JSON.stringify(regs));
+          renderDashboardData();
+        }
+
+      };
+
+      // Clear All Records
+      document.getElementById("clearAllBtn").addEventListener("click", function() {
+        if (confirm("⚠️ تحذير: هل أنت متأكد من مسح جميع قائمة المسجلين نهائياً؟")) {
+          localStorage.setItem("speakeasy_registrations", "[]");
+          renderDashboardData();
+        }
+      });
+
+      // Export Data to CSV (Excel)
+      document.getElementById("exportCsvBtn").addEventListener("click", function() {
+        const regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+        if (regs.length === 0) {
+          alert("لا توجد بيانات لتصديرها!");
+          return;
+        }
+
+        let csvContent = "\uFEFFالرقم,التاريخ والوقت,الاسم الكامل,رقم الهاتف,العمر,المستوى,البريد الإلكتروني,الولاية,طريقة الدفع\n";
+        regs.forEach((r, i) => {
+          csvContent += `"${i+1}","${r.timestamp}","${r.fullName}","${r.phone}","${r.age}","${r.level}","${r.email}","${r.wilaya}","${r.payment}"\n`;
+        });
+
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `مسجلي_Speakeasy_${new Date().toISOString().slice(0,10)}.csv`;
+        a.click();
+      });
+
+      // Toggle & Change Admin Password Logic
+      const passChangeBox = document.getElementById("passChangeBox");
+      document.getElementById("togglePassBoxBtn").addEventListener("click", function() {
+        passChangeBox.classList.toggle("active");
+      });
+
+      document.getElementById("saveNewPassBtn").addEventListener("click", function() {
+        const oldPass = document.getElementById("oldPassInput").value;
+        const newPass = document.getElementById("newPassInput").value;
+        const confirmPass = document.getElementById("confirmPassInput").value;
+        const msg = document.getElementById("passChangeMsg");
+
+        const currentPass = localStorage.getItem("speakeasy_admin_pass");
+
+        if (oldPass !== currentPass) {
+          msg.style.color = "red";
+          msg.textContent = "الرقم السري الحالي غير صحيح!";
+          return;
+        }
+        if (!newPass || newPass.length < 4) {
+          msg.style.color = "red";
+          msg.textContent = "الرقم السري الجديد يجب أن يكون 4 أرقام/أحرف على الأقل.";
+          return;
+        }
+        if (newPass !== confirmPass) {
+          msg.style.color = "red";
+          msg.textContent = "الرقم السري الجديد وتأكيده غير متطابقين!";
+          return;
+        }
+
+        // Save New Password
+        localStorage.setItem("speakeasy_admin_pass", newPass);
+        msg.style.color = "green";
+        msg.textContent = "تم تغيير الرقم السري بنجاح! ✅";
+
+        // Reset Inputs
+        document.getElementById("oldPassInput").value = "";
+        document.getElementById("newPassInput").value = "";
+        document.getElementById("confirmPassInput").value = "";
+      });
+
+      // Set Current Year in Footer
+      const yearElem = document.getElementById("year");
+      if (yearElem) yearElem.textContent = new Date().getFullYear();
     });
   </script>
-  <script src="script.js"></script>
 </body>
 </html>
