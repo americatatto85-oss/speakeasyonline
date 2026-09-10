@@ -11,6 +11,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* ================= ERROR & VALIDATION STYLES ================= */
+    .error {
+      color: #e74c3c !important;
+      font-size: 0.85rem;
+      font-weight: bold;
+      display: block;
+      margin-top: 4px;
+    }
+    input.input-error, select.input-error {
+      border: 2px solid #e74c3c !important;
+      background-color: #fdf2f2;
+    }
+
     /* ================= STYLES FOR PRICING SECTION ================= */
     .price-card {
       background: #ffffff;
@@ -481,7 +494,7 @@
             <select id="age" name="age">
               <option value="" data-ar="اختر فئتك العمرية" data-en="Select your age range">اختر فئتك العمرية</option>
               <option value="20-30" data-ar="20 - 30 سنة" data-en="20 - 30 years">20 - 30 سنة</option>
-              <option value="31-40" data-ar="31 - 40 سنة" data-en="31 - 40 years">31 - 40 سنة</option>
+              <option value="31-40" data-ar="31 - 40 سنة" data-en="31 - 40 years">31 - 40 years">31 - 40 سنة</option>
               <option value="41-50" data-ar="41 - 50 سنة" data-en="41 - 50 years">41 - 50 سنة</option>
               <option value="50+" data-ar="أكثر من 50 سنة" data-en="More than 50 years">أكثر من 50 سنة</option>
             </select>
@@ -595,14 +608,14 @@
 
         <p class="submit-hint">👆 <span data-ar="اضغط تأكيد التسجيل عبر الواتساب" data-en="Press Confirm Registration via WhatsApp">اضغط تأكيد التسجيل عبر الواتساب</span></p>
         
-        <button type="submit" class="btn btn-whatsapp btn-lg btn-block">
+        <button type="submit" id="submitRegBtn" class="btn btn-whatsapp btn-lg btn-block">
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
           <span data-ar="تأكيد التسجيل عبر واتساب" data-en="Confirm Registration via WhatsApp">تأكيد التسجيل عبر واتساب</span>
         </button>
 
-        <div class="form-success" id="formSuccess" hidden>
-          <p class="success-title" data-ar="تم تجهيز طلب تسجيلك بنجاح! ✅" data-en="Your registration request is ready! ✅">تم تجهيز طلب تسجيلك بنجاح! ✅</p>
-          <p data-ar="تم فتح واتساب — اضغط إرسال لإتمام التسجيل. إن لم يُفتح تلقائيًا استعمل الزر أدناه." data-en="WhatsApp has been opened — press send to complete registration. If it didn't open, use the button below.">تم فتح واتساب — اضغط إرسال لإتمام التسجيل. إن لم يُفتح تلقائيًا استعمل الزر أدناه.</p>
+        <div class="form-success" id="formSuccess" hidden style="margin-top:20px;">
+          <p class="success-title" data-ar="تم حفظ التسجيل بنجاح وتحويلك للواتساب! ✅" data-en="Registration saved & redirecting to WhatsApp! ✅">تم حفظ التسجيل بنجاح وتحويلك للواتساب! ✅</p>
+          <p data-ar="تم فتح الواتساب في نافذة جديدة. إن لم يُفتح تلقائيًا استعمل الزر أدناه." data-en="WhatsApp opened. If not, use the button below.">تم فتح الواتساب في نافذة جديدة. إن لم يُفتح تلقائيًا استعمل الزر أدناه.</p>
           <a href="#" id="waFallback" target="_blank" rel="noopener" class="btn btn-whatsapp">
             <span data-ar="فتح واتساب مجددًا" data-en="Open WhatsApp again">فتح واتساب مجددًا</span>
           </a>
@@ -665,13 +678,13 @@
     <div class="modal-card login-card">
       <div class="modal-header">
         <h3>🔒 دخول الإدارة</h3>
-        <button class="close-modal" class="closeAdminLogin">&times;</button>
+        <button type="button" class="close-modal">&times;</button>
       </div>
       <form id="adminLoginForm">
         <div class="field" style="margin-bottom: 15px;">
           <label for="adminPasswordInput">أدخل الرقم السري للإدارة:</label>
           <input type="password" id="adminPasswordInput" placeholder="الرقم السري" style="width: 100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
-          <small class="error" id="loginError" style="color:red; display:block; margin-top:5px;"></small>
+          <small class="error" id="loginError"></small>
         </div>
         <button type="submit" class="btn btn-gold btn-block">دخول</button>
       </form>
@@ -683,12 +696,12 @@
     <div class="modal-card">
       <div class="modal-header">
         <h3>📊 لوحة تحكم الإدارة — SPEAKEASY</h3>
-        <button class="close-modal" id="closeAdminDash">&times;</button>
+        <button type="button" class="close-modal">&times;</button>
       </div>
 
       <div class="dash-stats-bar">
         <div class="dash-stat-item">
-          <span>إجمالي المسجلين عبر الواتساب</span>
+          <span>إجمالي المسجلين</span>
           <strong id="dashTotalCount">0</strong>
         </div>
         <div class="dash-stat-item">
@@ -697,13 +710,12 @@
         </div>
       </div>
 
-      <!-- Password Change Section -->
       <div class="pass-change-box" id="passChangeBox">
         <h4 style="margin-top:0;">🔑 تغيير الرقم السري للإدارة</h4>
         <div class="pass-change-grid">
-          <input type="password" id="oldPassInput" placeholder="الكلمة السرية الحالية" style="padding: 8px; border:1px solid #ccc; border-radius:4px;">
-          <input type="password" id="newPassInput" placeholder="الكلمة السرية الجديدة" style="padding: 8px; border:1px solid #ccc; border-radius:4px;">
-          <input type="password" id="confirmPassInput" placeholder="تأكيد الكلمة السرية الجديدة" style="padding: 8px; border:1px solid #ccc; border-radius:4px;">
+          <input type="password" id="oldPassInput" placeholder="الكلمة السرية الحالية">
+          <input type="password" id="newPassInput" placeholder="الكلمة السرية الجديدة">
+          <input type="password" id="confirmPassInput" placeholder="تأكيد الكلمة السرية الجديدة">
         </div>
         <div style="margin-top: 10px; display: flex; gap: 10px; align-items: center;">
           <button type="button" class="dash-btn dash-btn-excel" id="saveNewPassBtn">حفظ الرقم السري الجديد</button>
@@ -714,9 +726,9 @@
       <div class="dash-controls">
         <input type="text" id="dashSearch" class="dash-search-input" placeholder="🔍 بحث بالاسم، الهاتف، الولاية...">
         <div style="display: flex; gap: 8px;">
-          <button class="dash-btn dash-btn-pass" id="togglePassBoxBtn">⚙️ تغيير الرقم السري</button>
-          <button class="dash-btn dash-btn-excel" id="exportCsvBtn">📥 تصدير Excel (CSV)</button>
-          <button class="dash-btn dash-btn-clear" id="clearAllBtn">🗑️ مسح الكل</button>
+          <button type="button" class="dash-btn dash-btn-pass" id="togglePassBoxBtn">⚙️ تغيير الرقم السري</button>
+          <button type="button" class="dash-btn dash-btn-excel" id="exportCsvBtn">📥 تصدير Excel (CSV)</button>
+          <button type="button" class="dash-btn dash-btn-clear" id="clearAllBtn">🗑️ مسح الكل</button>
         </div>
       </div>
 
@@ -737,7 +749,6 @@
             </tr>
           </thead>
           <tbody id="dashTableBody">
-            <!-- Data Rows inserted via JS -->
           </tbody>
         </table>
       </div>
@@ -746,26 +757,35 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // 1. Visitiors Counter Logic
+      // 1. Visitor Counter
       let visits = localStorage.getItem("speakeasy_visit_count");
-      if (!visits) {
-        visits = 1;
-      } else {
-        visits = parseInt(visits) + 1;
-      }
+      visits = visits ? parseInt(visits) + 1 : 1;
       localStorage.setItem("speakeasy_visit_count", visits);
       
       const visitorElem = document.getElementById("visitorCount");
-      if (visitorElem) {
-        visitorElem.textContent = visits;
-      }
+      if (visitorElem) visitorElem.textContent = visits;
 
-      // Default Admin Password (123456 if not set)
+      // Default Admin Password (123456)
       if (!localStorage.getItem("speakeasy_admin_pass")) {
         localStorage.setItem("speakeasy_admin_pass", "123456");
       }
 
-      // 2. Registration Form Logic & Saving Data
+      // Helper function to show errors
+      function setFieldError(fieldId, message) {
+        const errElem = document.querySelector(`[data-error-for="${fieldId}"]`);
+        const inputElem = document.getElementById(fieldId);
+        if (errElem) errElem.textContent = message;
+        if (inputElem) inputElem.classList.add("input-error");
+      }
+
+      function clearFieldError(fieldId) {
+        const errElem = document.querySelector(`[data-error-for="${fieldId}"]`);
+        const inputElem = document.getElementById(fieldId);
+        if (errElem) errElem.textContent = "";
+        if (inputElem) inputElem.classList.remove("input-error");
+      }
+
+      // 2. Form Submission & Direct Save Logic
       const regForm = document.getElementById("regForm");
       if (regForm) {
         regForm.addEventListener("submit", function (e) {
@@ -780,22 +800,22 @@
           const payment = document.getElementById("payment").value;
           const agree = document.getElementById("agree").checked;
 
-          let hasError = false;
+          let isValid = true;
 
-          // Simple Validation
-          if (!fullName) { showError("fullName", "يرجى إدخال الاسم الكامل"); hasError = true; } else { clearError("fullName"); }
-          if (!phone) { showError("phone", "يرجى إدخال رقم الهاتف"); hasError = true; } else { clearError("phone"); }
-          if (!age) { showError("age", "يرجى اختيار الفئة العمرية"); hasError = true; } else { clearError("age"); }
-          if (!level) { showError("level", "يرجى اختيار مستواك"); hasError = true; } else { clearError("level"); }
-          if (!email) { showError("email", "يرجى إدخال البريد الإلكتروني"); hasError = true; } else { clearError("email"); }
-          if (!wilaya) { showError("wilaya", "يرجى اختيار ولايتك"); hasError = true; } else { clearError("wilaya"); }
-          if (!payment) { showError("payment", "يرجى اختيار طريقة الدفع"); hasError = true; } else { clearError("payment"); }
-          if (!agree) { showError("agree", "يجب الموافقة على شروط التسجيل"); hasError = true; } else { clearError("agree"); }
+          // Check required inputs & display explicit red errors if empty
+          if (!fullName) { setFieldError("fullName", "يرجى كتابة الاسم الكامل"); isValid = false; } else { clearFieldError("fullName"); }
+          if (!phone) { setFieldError("phone", "يرجى كتابة رقم الهاتف"); isValid = false; } else { clearFieldError("phone"); }
+          if (!age) { setFieldError("age", "يرجى اختيار الفئة العمرية"); isValid = false; } else { clearFieldError("age"); }
+          if (!level) { setFieldError("level", "يرجى اختيار مستواك في الإنجليزية"); isValid = false; } else { clearFieldError("level"); }
+          if (!email) { setFieldError("email", "يرجى كتابة البريد الإلكتروني"); isValid = false; } else { clearFieldError("email"); }
+          if (!wilaya) { setFieldError("wilaya", "يرجى اختيار ولايتك"); isValid = false; } else { clearFieldError("wilaya"); }
+          if (!payment) { setFieldError("payment", "يرجى اختيار طريقة الدفع"); isValid = false; } else { clearFieldError("payment"); }
+          if (!agree) { setFieldError("agree", "يجب الموافقة على الشروط أولاً"); isValid = false; } else { clearFieldError("agree"); }
 
-          if (hasError) return;
+          if (!isValid) return;
 
-          // Format Registration Record
-          const record = {
+          // Create New Student Record
+          const newRecord = {
             id: Date.now(),
             timestamp: new Date().toLocaleString("ar-DZ"),
             fullName: fullName,
@@ -807,10 +827,13 @@
             payment: payment
           };
 
-          // Save to LocalStorage
-          let currentRegs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
-          currentRegs.unshift(record);
-          localStorage.setItem("speakeasy_registrations", JSON.stringify(currentRegs));
+          // Save into localStorage immediately
+          let existingData = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+          existingData.unshift(newRecord);
+          localStorage.setItem("speakeasy_registrations", JSON.stringify(existingData));
+
+          // If dashboard is currently visible, refresh table immediately
+          renderDashboardData();
 
           // Prepare WhatsApp Message
           const waMessage = `مرحباً SPEAKEASY، أريد تأكيد تسجيلي في الدورة:
@@ -824,25 +847,13 @@
 
           const waUrl = `https://wa.me/213781610793?text=${encodeURIComponent(waMessage)}`;
 
-          // Show Success UI & Fallback
+          // Update success elements & Open WhatsApp
           document.getElementById("formSuccess").hidden = false;
           document.getElementById("waFallback").href = waUrl;
 
-          // Open WhatsApp
           window.open(waUrl, "_blank");
-
-          // Reset Form
           regForm.reset();
         });
-      }
-
-      function showError(fieldId, msg) {
-        const errElem = document.querySelector(`[data-error-for="${fieldId}"]`);
-        if (errElem) errElem.textContent = msg;
-      }
-      function clearError(fieldId) {
-        const errElem = document.querySelector(`[data-error-for="${fieldId}"]`);
-        if (errElem) errElem.textContent = "";
       }
 
       // 3. Admin Authentication & Dashboard Modal Logic
@@ -872,36 +883,37 @@
           loginError.textContent = "";
           adminLoginModal.classList.remove("active");
           document.getElementById("adminPasswordInput").value = "";
-          openDashboard();
+          adminDashboardModal.classList.add("active");
+          renderDashboardData();
         } else {
           loginError.textContent = "الرقم السري غير صحيح!";
         }
       });
 
-      // Render & Open Dashboard
-      function openDashboard() {
-        adminDashboardModal.classList.add("active");
-        renderDashboardData();
-      }
-
+      // Render Dashboard Rows safely
       function renderDashboardData() {
         const regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
-        document.getElementById("dashTotalCount").textContent = regs.length;
-        document.getElementById("dashVisitsCount").textContent = localStorage.getItem("speakeasy_visit_count") || "1";
+        const countElem = document.getElementById("dashTotalCount");
+        const visitsElem = document.getElementById("dashVisitsCount");
+        
+        if (countElem) countElem.textContent = regs.length;
+        if (visitsElem) visitsElem.textContent = localStorage.getItem("speakeasy_visit_count") || "1";
 
         const tbody = document.getElementById("dashTableBody");
-        const searchTerm = document.getElementById("dashSearch").value.toLowerCase();
+        if (!tbody) return;
+
+        const searchTerm = (document.getElementById("dashSearch").value || "").toLowerCase();
         tbody.innerHTML = "";
 
         const filtered = regs.filter(r => 
-          r.fullName.toLowerCase().includes(searchTerm) ||
-          r.phone.includes(searchTerm) ||
-          r.wilaya.toLowerCase().includes(searchTerm) ||
-          r.email.toLowerCase().includes(searchTerm)
+          (r.fullName && r.fullName.toLowerCase().includes(searchTerm)) ||
+          (r.phone && r.phone.includes(searchTerm)) ||
+          (r.wilaya && r.wilaya.toLowerCase().includes(searchTerm)) ||
+          (r.email && r.email.toLowerCase().includes(searchTerm))
         );
 
         if (filtered.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:20px; color:#888;">لا توجد تسجيلات حتى الآن.</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:20px; color:#888;">لا توجد تسجيلات حظر حتى الآن.</td></tr>`;
           return;
         }
 
@@ -918,17 +930,17 @@
             <td>${r.wilaya}</td>
             <td>${r.payment}</td>
             <td>
-              <button onclick="deleteSingleReg(${r.id})" style="background:#e74c3c; color:#fff; border:none; border-radius:4px; padding:4px 8px; cursor:pointer;">حذف</button>
+              <button type="button" onclick="deleteSingleReg(${r.id})" style="background:#e74c3c; color:#fff; border:none; border-radius:4px; padding:4px 8px; cursor:pointer;">حذف</button>
             </td>
           `;
           tbody.appendChild(tr);
         });
       }
 
-      // Search Filter
+      // Search Handler
       document.getElementById("dashSearch").addEventListener("input", renderDashboardData);
 
-      // Delete Single Record
+      // Global Delete Record Function
       window.deleteSingleReg = function(id) {
         if (confirm("هل أنت تأكد من حذف هذا التسجيل؟")) {
           let regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
@@ -936,18 +948,17 @@
           localStorage.setItem("speakeasy_registrations", JSON.stringify(regs));
           renderDashboardData();
         }
-
       };
 
       // Clear All Records
       document.getElementById("clearAllBtn").addEventListener("click", function() {
-        if (confirm("⚠️ تحذير: هل أنت متأكد من مسح جميع قائمة المسجلين نهائياً؟")) {
+        if (confirm("⚠️ تحذير: هل أنت متأكد من مسح كافة التسجيلات نهائياً؟")) {
           localStorage.setItem("speakeasy_registrations", "[]");
           renderDashboardData();
         }
       });
 
-      // Export Data to CSV (Excel)
+      // Export CSV
       document.getElementById("exportCsvBtn").addEventListener("click", function() {
         const regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
         if (regs.length === 0) {
@@ -968,7 +979,7 @@
         a.click();
       });
 
-      // Toggle & Change Admin Password Logic
+      // Change Password Logic
       const passChangeBox = document.getElementById("passChangeBox");
       document.getElementById("togglePassBoxBtn").addEventListener("click", function() {
         passChangeBox.classList.toggle("active");
@@ -989,27 +1000,25 @@
         }
         if (!newPass || newPass.length < 4) {
           msg.style.color = "red";
-          msg.textContent = "الرقم السري الجديد يجب أن يكون 4 أرقام/أحرف على الأقل.";
+          msg.textContent = "يجب أن يتكون الرقم السري من 4 أرقام أو أحرف على الأقل.";
           return;
         }
         if (newPass !== confirmPass) {
           msg.style.color = "red";
-          msg.textContent = "الرقم السري الجديد وتأكيده غير متطابقين!";
+          msg.textContent = "كلمتا السر غير متطابقتين!";
           return;
         }
 
-        // Save New Password
         localStorage.setItem("speakeasy_admin_pass", newPass);
         msg.style.color = "green";
         msg.textContent = "تم تغيير الرقم السري بنجاح! ✅";
 
-        // Reset Inputs
         document.getElementById("oldPassInput").value = "";
         document.getElementById("newPassInput").value = "";
         document.getElementById("confirmPassInput").value = "";
       });
 
-      // Set Current Year in Footer
+      // Dynamic Footer Year
       const yearElem = document.getElementById("year");
       if (yearElem) yearElem.textContent = new Date().getFullYear();
     });
