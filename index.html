@@ -115,7 +115,7 @@
       font-weight: bold;
     }
 
-    /* ================= DASHBOARD & MODAL STYLES ================= */
+    /* ================= CB STYLES ================= */
     .admin-link-btn {
       background: transparent;
       border: 1px dashed #f1c40f;
@@ -374,12 +374,8 @@
           <h3 data-ar="السعر والتخفيض" data-en="Discounted Price">السعر والتخفيض</h3>
           
           <div class="price-box-wrapper">
-            <div class="price-box-old">
-              12000 دج
-            </div>
-            <div class="price-box-new">
-              9600 دج
-            </div>
+            <div class="price-box-old">12000 دج</div>
+            <div class="price-box-new">9600 دج</div>
           </div>
 
           <p class="price-caption" data-ar="(تسعمائة وستين ألف) للدورة كاملة (12 ساعة)" data-en="Full course (12 hours)">(تسعمائة وستين ألف) للدورة كاملة (12 ساعة)</p>
@@ -494,7 +490,7 @@
             <select id="age" name="age">
               <option value="" data-ar="اختر فئتك العمرية" data-en="Select your age range">اختر فئتك العمرية</option>
               <option value="20-30" data-ar="20 - 30 سنة" data-en="20 - 30 years">20 - 30 سنة</option>
-              <option value="31-40" data-ar="31 - 40 سنة" data-en="31 - 40 years">31 - 40 years">31 - 40 سنة</option>
+              <option value="31-40" data-ar="31 - 40 سنة" data-en="31 - 40 years">31 - 40 سنة</option>
               <option value="41-50" data-ar="41 - 50 سنة" data-en="41 - 50 years">41 - 50 سنة</option>
               <option value="50+" data-ar="أكثر من 50 سنة" data-en="More than 50 years">أكثر من 50 سنة</option>
             </select>
@@ -665,7 +661,7 @@
     </div>
     <div class="footer-bottom">
       <p>© <span id="year">2026</span> SPEAKEASY. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></p>
-      <button type="button" class="admin-link-btn" id="openAdminTrigger">🔒 لوحة التحكم للإدارة</button>
+      <button type="button" class="admin-link-btn" id="openAdminTrigger">🔒 CB</button>
     </div>
   </footer>
 
@@ -673,16 +669,16 @@
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9c1.8 1 3.9 1.5 6 1.5h.3c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.1 1.2-4.4-.3-.4c-1-1.6-1.6-3.5-1.6-5.5 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10.9-10 10.9zm5.5-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.4.3-.6.1-.2 0-.4 0-.6L13.9 10c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.6.2-.9.5-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.2-.6-.4z"/></svg>
   </a>
 
-  <!-- ================= ADMIN LOGIN MODAL ================= -->
+  <!-- ================= CB LOGIN MODAL ================= -->
   <div class="modal-overlay" id="adminLoginModal">
     <div class="modal-card login-card">
       <div class="modal-header">
-        <h3>🔒 دخول الإدارة</h3>
+        <h3>🔒 دخول CB</h3>
         <button type="button" class="close-modal">&times;</button>
       </div>
       <form id="adminLoginForm">
         <div class="field" style="margin-bottom: 15px;">
-          <label for="adminPasswordInput">أدخل الرقم السري للإدارة:</label>
+          <label for="adminPasswordInput">أدخل الرقم السري لـ CB:</label>
           <input type="password" id="adminPasswordInput" placeholder="الرقم السري" style="width: 100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
           <small class="error" id="loginError"></small>
         </div>
@@ -691,11 +687,11 @@
     </div>
   </div>
 
-  <!-- ================= ADMIN DASHBOARD MODAL ================= -->
+  <!-- ================= CB DASHBOARD MODAL ================= -->
   <div class="modal-overlay" id="adminDashboardModal">
     <div class="modal-card">
       <div class="modal-header">
-        <h3>📊 لوحة تحكم الإدارة — SPEAKEASY</h3>
+        <h3>📊 CB — SPEAKEASY</h3>
         <button type="button" class="close-modal">&times;</button>
       </div>
 
@@ -711,7 +707,7 @@
       </div>
 
       <div class="pass-change-box" id="passChangeBox">
-        <h4 style="margin-top:0;">🔑 تغيير الرقم السري للإدارة</h4>
+        <h4 style="margin-top:0;">🔑 تغيير الرقم السري لـ CB</h4>
         <div class="pass-change-grid">
           <input type="password" id="oldPassInput" placeholder="الكلمة السرية الحالية">
           <input type="password" id="newPassInput" placeholder="الكلمة السرية الجديدة">
@@ -765,7 +761,7 @@
       const visitorElem = document.getElementById("visitorCount");
       if (visitorElem) visitorElem.textContent = visits;
 
-      // Default Admin Password (123456)
+      // Default CB Password (123456)
       if (!localStorage.getItem("speakeasy_admin_pass")) {
         localStorage.setItem("speakeasy_admin_pass", "123456");
       }
@@ -785,7 +781,7 @@
         if (inputElem) inputElem.classList.remove("input-error");
       }
 
-      // 2. Form Submission & Direct Save Logic
+      // 2. Form Submission & Direct Registration Fix
       const regForm = document.getElementById("regForm");
       if (regForm) {
         regForm.addEventListener("submit", function (e) {
@@ -802,7 +798,6 @@
 
           let isValid = true;
 
-          // Check required inputs & display explicit red errors if empty
           if (!fullName) { setFieldError("fullName", "يرجى كتابة الاسم الكامل"); isValid = false; } else { clearFieldError("fullName"); }
           if (!phone) { setFieldError("phone", "يرجى كتابة رقم الهاتف"); isValid = false; } else { clearFieldError("phone"); }
           if (!age) { setFieldError("age", "يرجى اختيار الفئة العمرية"); isValid = false; } else { clearFieldError("age"); }
@@ -827,12 +822,18 @@
             payment: payment
           };
 
-          // Save into localStorage immediately
-          let existingData = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+          // Safe Save into localStorage
+          let existingData = [];
+          try {
+            existingData = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+          } catch (err) {
+            existingData = [];
+          }
+
           existingData.unshift(newRecord);
           localStorage.setItem("speakeasy_registrations", JSON.stringify(existingData));
 
-          // If dashboard is currently visible, refresh table immediately
+          // Force Dashboard Refresh immediately
           renderDashboardData();
 
           // Prepare WhatsApp Message
@@ -847,25 +848,27 @@
 
           const waUrl = `https://wa.me/213781610793?text=${encodeURIComponent(waMessage)}`;
 
-          // Update success elements & Open WhatsApp
           document.getElementById("formSuccess").hidden = false;
           document.getElementById("waFallback").href = waUrl;
 
+          // Redirect to WhatsApp
           window.open(waUrl, "_blank");
           regForm.reset();
         });
       }
 
-      // 3. Admin Authentication & Dashboard Modal Logic
+      // 3. CB Authentication & Modal Controls
       const openAdminTrigger = document.getElementById("openAdminTrigger");
       const adminLoginModal = document.getElementById("adminLoginModal");
       const adminDashboardModal = document.getElementById("adminDashboardModal");
       const adminLoginForm = document.getElementById("adminLoginForm");
       const loginError = document.getElementById("loginError");
 
-      openAdminTrigger.addEventListener("click", function() {
-        adminLoginModal.classList.add("active");
-      });
+      if (openAdminTrigger) {
+        openAdminTrigger.addEventListener("click", function() {
+          adminLoginModal.classList.add("active");
+        });
+      }
 
       document.querySelectorAll(".close-modal").forEach(btn => {
         btn.addEventListener("click", function() {
@@ -874,25 +877,33 @@
         });
       });
 
-      adminLoginForm.addEventListener("submit", function(e) {
-        e.preventDefault();
-        const enteredPass = document.getElementById("adminPasswordInput").value;
-        const currentPass = localStorage.getItem("speakeasy_admin_pass");
+      if (adminLoginForm) {
+        adminLoginForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          const enteredPass = document.getElementById("adminPasswordInput").value;
+          const currentPass = localStorage.getItem("speakeasy_admin_pass");
 
-        if (enteredPass === currentPass) {
-          loginError.textContent = "";
-          adminLoginModal.classList.remove("active");
-          document.getElementById("adminPasswordInput").value = "";
-          adminDashboardModal.classList.add("active");
-          renderDashboardData();
-        } else {
-          loginError.textContent = "الرقم السري غير صحيح!";
-        }
-      });
+          if (enteredPass === currentPass) {
+            loginError.textContent = "";
+            adminLoginModal.classList.remove("active");
+            document.getElementById("adminPasswordInput").value = "";
+            adminDashboardModal.classList.add("active");
+            renderDashboardData();
+          } else {
+            loginError.textContent = "الرقم السري غير صحيح!";
+          }
+        });
+      }
 
-      // Render Dashboard Rows safely
+      // Render Dashboard Rows
       function renderDashboardData() {
-        const regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+        let regs = [];
+        try {
+          regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+        } catch (e) {
+          regs = [];
+        }
+
         const countElem = document.getElementById("dashTotalCount");
         const visitsElem = document.getElementById("dashVisitsCount");
         
@@ -902,7 +913,8 @@
         const tbody = document.getElementById("dashTableBody");
         if (!tbody) return;
 
-        const searchTerm = (document.getElementById("dashSearch").value || "").toLowerCase();
+        const searchInput = document.getElementById("dashSearch");
+        const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : "";
         tbody.innerHTML = "";
 
         const filtered = regs.filter(r => 
@@ -913,7 +925,7 @@
         );
 
         if (filtered.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:20px; color:#888;">لا توجد تسجيلات حظر حتى الآن.</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:20px; color:#888;">لا توجد تسجيلات حظر أو جديدة حتى الآن.</td></tr>`;
           return;
         }
 
@@ -921,14 +933,14 @@
           const tr = document.createElement("tr");
           tr.innerHTML = `
             <td>${index + 1}</td>
-            <td>${r.timestamp}</td>
-            <td><strong>${r.fullName}</strong></td>
-            <td><a href="https://wa.me/${r.phone.replace(/[^0-9]/g, '')}" target="_blank" style="color:#27ae60; font-weight:bold; text-decoration:none;">📱 ${r.phone}</a></td>
-            <td>${r.age}</td>
-            <td>${r.level}</td>
-            <td>${r.email}</td>
-            <td>${r.wilaya}</td>
-            <td>${r.payment}</td>
+            <td>${r.timestamp || ''}</td>
+            <td><strong>${r.fullName || ''}</strong></td>
+            <td><a href="https://wa.me/${(r.phone || '').replace(/[^0-9]/g, '')}" target="_blank" style="color:#27ae60; font-weight:bold; text-decoration:none;">📱 ${r.phone || ''}</a></td>
+            <td>${r.age || ''}</td>
+            <td>${r.level || ''}</td>
+            <td>${r.email || ''}</td>
+            <td>${r.wilaya || ''}</td>
+            <td>${r.payment || ''}</td>
             <td>
               <button type="button" onclick="deleteSingleReg(${r.id})" style="background:#e74c3c; color:#fff; border:none; border-radius:4px; padding:4px 8px; cursor:pointer;">حذف</button>
             </td>
@@ -938,11 +950,12 @@
       }
 
       // Search Handler
-      document.getElementById("dashSearch").addEventListener("input", renderDashboardData);
+      const dashSearch = document.getElementById("dashSearch");
+      if (dashSearch) dashSearch.addEventListener("input", renderDashboardData);
 
       // Global Delete Record Function
       window.deleteSingleReg = function(id) {
-        if (confirm("هل أنت تأكد من حذف هذا التسجيل؟")) {
+        if (confirm("هل أنت متأكد من حذف هذا التسجيل؟")) {
           let regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
           regs = regs.filter(r => r.id !== id);
           localStorage.setItem("speakeasy_registrations", JSON.stringify(regs));
@@ -951,72 +964,84 @@
       };
 
       // Clear All Records
-      document.getElementById("clearAllBtn").addEventListener("click", function() {
-        if (confirm("⚠️ تحذير: هل أنت متأكد من مسح كافة التسجيلات نهائياً؟")) {
-          localStorage.setItem("speakeasy_registrations", "[]");
-          renderDashboardData();
-        }
-      });
+      const clearAllBtn = document.getElementById("clearAllBtn");
+      if (clearAllBtn) {
+        clearAllBtn.addEventListener("click", function() {
+          if (confirm("⚠️ تحذير: هل أنت متأكد من مسح كافة التسجيلات نهائياً؟")) {
+            localStorage.setItem("speakeasy_registrations", "[]");
+            renderDashboardData();
+          }
+        });
+      }
 
       // Export CSV
-      document.getElementById("exportCsvBtn").addEventListener("click", function() {
-        const regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
-        if (regs.length === 0) {
-          alert("لا توجد بيانات لتصديرها!");
-          return;
-        }
+      const exportCsvBtn = document.getElementById("exportCsvBtn");
+      if (exportCsvBtn) {
+        exportCsvBtn.addEventListener("click", function() {
+          const regs = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
+          if (regs.length === 0) {
+            alert("لا توجد بيانات لتصديرها!");
+            return;
+          }
 
-        let csvContent = "\uFEFFالرقم,التاريخ والوقت,الاسم الكامل,رقم الهاتف,العمر,المستوى,البريد الإلكتروني,الولاية,طريقة الدفع\n";
-        regs.forEach((r, i) => {
-          csvContent += `"${i+1}","${r.timestamp}","${r.fullName}","${r.phone}","${r.age}","${r.level}","${r.email}","${r.wilaya}","${r.payment}"\n`;
+          let csvContent = "\uFEFFالرقم,التاريخ والوقت,الاسم الكامل,رقم الهاتف,العمر,المستوى,البريد الإلكتروني,الولاية,طريقة الدفع\n";
+          regs.forEach((r, i) => {
+            csvContent += `"${i+1}","${r.timestamp}","${r.fullName}","${r.phone}","${r.age}","${r.level}","${r.email}","${r.wilaya}","${r.payment}"\n`;
+          });
+
+          const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `مسجلي_Speakeasy_${new Date().toISOString().slice(0,10)}.csv`;
+          a.click();
         });
+      }
 
-        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `مسجلي_Speakeasy_${new Date().toISOString().slice(0,10)}.csv`;
-        a.click();
-      });
-
-      // Change Password Logic
+      // Password Change Logic
       const passChangeBox = document.getElementById("passChangeBox");
-      document.getElementById("togglePassBoxBtn").addEventListener("click", function() {
-        passChangeBox.classList.toggle("active");
-      });
+      const togglePassBoxBtn = document.getElementById("togglePassBoxBtn");
+      if (togglePassBoxBtn) {
+        togglePassBoxBtn.addEventListener("click", function() {
+          passChangeBox.classList.toggle("active");
+        });
+      }
 
-      document.getElementById("saveNewPassBtn").addEventListener("click", function() {
-        const oldPass = document.getElementById("oldPassInput").value;
-        const newPass = document.getElementById("newPassInput").value;
-        const confirmPass = document.getElementById("confirmPassInput").value;
-        const msg = document.getElementById("passChangeMsg");
+      const saveNewPassBtn = document.getElementById("saveNewPassBtn");
+      if (saveNewPassBtn) {
+        saveNewPassBtn.addEventListener("click", function() {
+          const oldPass = document.getElementById("oldPassInput").value;
+          const newPass = document.getElementById("newPassInput").value;
+          const confirmPass = document.getElementById("confirmPassInput").value;
+          const msg = document.getElementById("passChangeMsg");
 
-        const currentPass = localStorage.getItem("speakeasy_admin_pass");
+          const currentPass = localStorage.getItem("speakeasy_admin_pass");
 
-        if (oldPass !== currentPass) {
-          msg.style.color = "red";
-          msg.textContent = "الرقم السري الحالي غير صحيح!";
-          return;
-        }
-        if (!newPass || newPass.length < 4) {
-          msg.style.color = "red";
-          msg.textContent = "يجب أن يتكون الرقم السري من 4 أرقام أو أحرف على الأقل.";
-          return;
-        }
-        if (newPass !== confirmPass) {
-          msg.style.color = "red";
-          msg.textContent = "كلمتا السر غير متطابقتين!";
-          return;
-        }
+          if (oldPass !== currentPass) {
+            msg.style.color = "red";
+            msg.textContent = "الرقم السري الحالي غير صحيح!";
+            return;
+          }
+          if (!newPass || newPass.length < 4) {
+            msg.style.color = "red";
+            msg.textContent = "يجب أن يتكون الرقم السري من 4 أرقام أو أحرف على الأقل.";
+            return;
+          }
+          if (newPass !== confirmPass) {
+            msg.style.color = "red";
+            msg.textContent = "كلمتا السر غير متطابقتين!";
+            return;
+          }
 
-        localStorage.setItem("speakeasy_admin_pass", newPass);
-        msg.style.color = "green";
-        msg.textContent = "تم تغيير الرقم السري بنجاح! ✅";
+          localStorage.setItem("speakeasy_admin_pass", newPass);
+          msg.style.color = "green";
+          msg.textContent = "تم تغيير الرقم السري لـ CB بنجاح! ✅";
 
-        document.getElementById("oldPassInput").value = "";
-        document.getElementById("newPassInput").value = "";
-        document.getElementById("confirmPassInput").value = "";
-      });
+          document.getElementById("oldPassInput").value = "";
+          document.getElementById("newPassInput").value = "";
+          document.getElementById("confirmPassInput").value = "";
+        });
+      }
 
       // Dynamic Footer Year
       const yearElem = document.getElementById("year");
