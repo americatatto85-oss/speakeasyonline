@@ -752,6 +752,9 @@
   </div>
 
   <script>
+    // ================= GOOGLE SHEETS SCRIPT URL =================
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8u1gx_H3FLt-oJCE0JTlCIgn78Algt447haMSLl5Sucxf19TOJBzEQuYX-qGCo58hoQ/exec";
+
     document.addEventListener("DOMContentLoaded", function () {
       // 1. Visitor Counter
       let visits = localStorage.getItem("speakeasy_visit_count");
@@ -781,7 +784,7 @@
         if (inputElem) inputElem.classList.remove("input-error");
       }
 
-      // 2. Form Submission & Direct Registration Fix
+      // 2. Form Submission & Direct Registration Fix + Google Sheets Integration
       const regForm = document.getElementById("regForm");
       if (regForm) {
         regForm.addEventListener("submit", function (e) {
@@ -822,7 +825,7 @@
             payment: payment
           };
 
-          // Safe Save into localStorage
+          // A) Safe Save into localStorage for CB Panel
           let existingData = [];
           try {
             existingData = JSON.parse(localStorage.getItem("speakeasy_registrations") || "[]");
@@ -833,8 +836,22 @@
           existingData.unshift(newRecord);
           localStorage.setItem("speakeasy_registrations", JSON.stringify(existingData));
 
-          // Force Dashboard Refresh immediately
+          // Force CB Dashboard Refresh
           renderDashboardData();
+
+          // B) Send Registration to Google Sheets via Web App API
+          fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newRecord)
+          }).then(() => {
+            console.log("تم إرسال التسجيل بنجاح إلى Google Sheets");
+          }).catch(err => {
+            console.error("خطأ أثناء الإرسال إلى Google Sheets:", err);
+          });
 
           // Prepare WhatsApp Message
           const waMessage = `مرحباً SPEAKEASY، أريد تأكيد تسجيلي في الدورة:
